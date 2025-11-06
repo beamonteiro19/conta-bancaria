@@ -1,13 +1,15 @@
-// import {Colors} from './src/util/Colors'
+import { colors } from "./src/util/Colors";
 
-// const input = require('readline-sync');
+import readlinesync = require("readline-sync");
 
+export function main() {
+  let opcoes: number;
+  while (true) {
+    console.log(
+      colors.bg.black,
+      colors.fg.yellow,
 
-let opcoes: number
-do{ 
-
-console.log(
-    `
+      `
     **************************************
             BANCO DO BRAZIL COM Z
     **************************************\n
@@ -22,20 +24,106 @@ console.log(
     9 -  Sair\n
     #####################################\n
     Entre com a opção desejada:\n
+    `,
+      colors.reset
+    );
+
+    opcoes = readlinesync.questionInt("Digite um número da lista \n");
+
+    if (opcoes == 9) {
+      console.log(
+        colors.fg.greenstrong,
+        "Banco do Brazil com Z - Seu futuro começa aqui!"
+      );
+      sobre();
+      console.log(colors.reset, "");
+      process.exit(0);
+    }
+
+    switch (opcoes) {
+      case 1:
+        console.log(colors.fg.whitestrong, "\n\nCriar Conta\n\n", colors.reset);
+        keyPress();
+        break;
+
+      case 2:
+        console.log(
+          colors.fg.whitestrong,
+          "\n\nListar todas as Contas\n\n",
+          colors.reset
+        );
+        keyPress();
+        break;
+
+      case 3:
+        console.log(
+          colors.fg.whitestrong,
+          "\n\nConsultar dados da Conta - por número\n\n",
+          colors.reset
+        );
+        keyPress();
+        break;
+      case 4:
+        console.log(
+          colors.fg.whitestrong,
+          "\n\nAtualizar dados da Conta\n\n",
+          colors.reset
+        );
+        keyPress();
+        break;
+
+      case 5:
+        console.log(
+          colors.fg.whitestrong,
+          "\n\nApagar uma Conta\n\n",
+          colors.reset
+        );
+        keyPress();
+        break;
+
+      case 6:
+        console.log(colors.fg.whitestrong, "\n\nSaque\n\n", colors.reset);
+        keyPress();
+        break;
+
+      case 7:
+        console.log(colors.fg.whitestrong, "\n\nDepósito\n\n", colors.reset);
+        keyPress();
+        break;
+
+      case 8:
+        console.log(
+          colors.fg.whitestrong,
+          "\n\nTransferência entre Contas\n\n",
+          colors.reset
+        );
+        keyPress();
+        break;
+
+      default:
+        console.log(colors.fg.whitestrong, "\nOpção Inválida!\n", colors.reset);
+        keyPress();
+        break;
+    }
+  }
+}
+
+export function sobre(): void {
+  console.log(
     `
-)
+    *********************************************\n
+    Projeto Desenvolvido por:  Beatriz Monteiro\n
+    Generation Brasil - generation@generation.org\n
+    https://github.com/beamonteiro19\n
+    *********************************************
+    `
+  );
+}
 
-opcoes = input.questionInt("Digite um número da lista")
+function keyPress(): void {
+  console.log(colors.reset, "");
+  console.log("\nPressione Enter para continuar...\n");
+  readlinesync.prompt();
+}
 
-
-// switch(opcoes){
-//     case 1: 
-//     break;
-
-
-//     case 2: 
-//     break;
-
-// }
-
-}while(opcoes !== 9)
+main();
