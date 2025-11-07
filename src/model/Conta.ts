@@ -92,7 +92,6 @@ export class Conta {
         \nNumero da conta: ${this._numero} \n
         \nAgencia: ${this._agencia} \n
         \Tipo da conta: ${this.tipo} \n
-        \nNumero da conta: ${this._numero} \n
         \nSaldo: ${this._saldo.toFixed(2)} \n
         `)
 
