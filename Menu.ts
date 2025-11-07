@@ -1,5 +1,7 @@
 import { colors } from "./src/util/Colors";
 import { Conta } from "./src/model/Conta";
+import { ContaCorrente } from "./src/model/ContaCorrente";
+import { ContaPoupanca } from "./src/model/ContaPoupanca";
 
 import readlinesync = require("readline-sync");
 
@@ -14,6 +16,35 @@ export function main() {
   conta.depositar(5000);
   conta.visualizar();
 
+  // Objeto da Classe ContaCorrente (Teste)
+  const contacorrente: ContaCorrente = new ContaCorrente(
+    2,
+    123,
+    1,
+    "Mariana",
+    15000,
+    1000
+  );
+  contacorrente.visualizar();
+  contacorrente.sacar(2000);
+  contacorrente.visualizar();
+  contacorrente.depositar(1000);
+  contacorrente.visualizar();
+
+  // Objeto da Classe ContaPoupanca (teste)
+  const contapoupanca: ContaPoupanca = new ContaPoupanca(
+    3,
+    123,
+    2,
+    "Victor",
+    1000,
+    10
+  );
+  contapoupanca.visualizar();
+  contapoupanca.sacar(200);
+  contapoupanca.visualizar();
+  contapoupanca.depositar(1000);
+  contapoupanca.visualizar();
   while (true) {
     console.log(
       colors.bg.black,
@@ -31,7 +62,7 @@ export function main() {
     6 - Sacar
     7 - Depositar
     8 - Transferir valores entre Contas
-    9 -  Sair\n
+    9 - Sair\n
     #####################################\n
     Entre com a opção desejada:\n
     `,
